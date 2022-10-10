@@ -1,9 +1,16 @@
-// Defining variables for and accessing express, object model, method override
+// Variables for and accessing express, object model, method override
 const express = require('express')
 const Deck = require('../models/deckModel')
 const methodOverride = require("method-override")
-// Defining variable for express router function
+// Variable for express router function
 const router = express.Router()
+// Variable for accessing ensure-login plugin
+const ensureLogin = require('connect-ensure-login')
+// Variable to access upload.js from middlewares folder
+const upload = require('../middlewares/upload')
+
+// All routes listed below will now only be accessible by logged in users
+router.use(ensureLogin.ensureLoggedIn())
 
 
 // INDEX
@@ -15,20 +22,21 @@ router.get('/decksite', async (req, res) => {
     })
 })
 
-// NEW route
+// NEW 
 router.get('/decksite/new', (req, res) => {
     res.render('new.ejs',{
         tabTitle: 'New Deck'
     })
 })
 
-// CREATE route
-router.post('/decksite', async (req, res) => {
+// CREATE
+router.post('/decksite', upload.single('img'), async (req, res) => {
+    req.body.img = req.file.path
    await Deck.create(req.body)
    res.redirect('/decksite')
 })
 
-// EDIT route
+// EDIT 
 router.get('/decksite/:id/edit', async (req, res) => {
     const deck = await Deck.findById(req.params.id)
     res.render('edit.ejs', {
@@ -38,8 +46,9 @@ router.get('/decksite/:id/edit', async (req, res) => {
   
 })
 
-// UPDATE route
-router.put('/decksite/:id', async (req, res) => {
+// UPDATE
+router.put('/decksite/:id', upload.single('img'), async (req, res) => {
+    req.body.img = req.file.path
     const deck = await Deck.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -50,7 +59,7 @@ router.put('/decksite/:id', async (req, res) => {
 })
 
 
-// DELETE route
+// DELETE 
 router.delete('/decksite/:id', async (req, res) => {
     const deck = await Deck.findByIdAndRemove(req.params.id)
     console.log('Deleted deck', deck)
@@ -58,7 +67,7 @@ router.delete('/decksite/:id', async (req, res) => {
    })
 
 
-// SHOW route
+// SHOW
 router.get('/decksite/:id', async (req, res) => {
     const deck = await Deck.findById(req.params.id)
     res.render('show.ejs', {

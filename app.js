@@ -1,27 +1,28 @@
 // Accessing the dotenv plugin
 require('dotenv').config()
 
-// Variables for accessing express, mongoose and method override
+// Variables for accessing express, mongoose, passport and method override
 const express = require('express')
 const mongoose = require('mongoose')
+const passport = require('passport')
 const methodOverride = require("method-override")
 
-// Variables for accessing express session and connext-mongodb-session middlewares to store session data
+// Variables for accessing express session and express flash
 const session = require('express-session')
+const flash = require('express-flash')
+
+ // Variable for accessing connect-mongodb-session middlewares to store session data
 const mongoDBSession = require('connect-mongodb-session')
 
 
+// Variable for accessing the userModel
+const User= require('./models/userModel')
 
-// const passport = require('passport')
-// const flash = require('flash')
-
-
-// const User= require('.models.userModel')
-
-
-// Variables for accessing object model and controller
+// Variables for accessing object model and controllers
 const Deck = require('./models/deckModel')
+const authController = require('./controllers/auth')
 const decksiteController = require('./controllers/decksite')
+
 
 // Variable for accessing object list
 const seedData = require('./seed/decksList')
@@ -58,6 +59,23 @@ app.use(session({
     store: sessionStore
 }))
 
+// This must come after app.use(session({}))
+app.use(flash())
+
+// Initialise the passport middleware
+app.use(passport.initialize())
+// Not 100% sure what this line does
+app.use(passport.session())
+
+// Configuring passport itself - passport doesn't do anything automatically, msut be instructed on how to verify users.
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+// Redirect to the login page
+app.get('/', (req, res) =>{
+    res.render('loggedout.ejs')
+})
 
 // Connecting to database via its URL using mongoose.connect
 mongoose.connect(dbURL, () => {
@@ -77,5 +95,7 @@ app.listen(PORT, ()=>  {
 })
 
 
-// Using express to call controller file
+// Using express to call controller files
+app.use(authController)
+// app.use(decksiteController) MUST COME AFTER app.use(authController) as decksite controller disallows access to all routes that come after it without being logged in
 app.use(decksiteController)

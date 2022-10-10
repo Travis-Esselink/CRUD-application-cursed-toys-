@@ -13,4 +13,13 @@
 
     </div>
 
+    <form action="/decksite/<%= deck.id %>/edit">
+        <input class="edit-delete-btn" type="submit" value="EDIT" />
+    </form>
+
+    <form action="/decksite/<%= deck.id %>?_method=DELETE" method="post">
+        <input class="edit-delete-btn" type="submit" value="REMOVE" />
+    </form>
+
+
     <%- include('./partials/foot.ejs') %>
