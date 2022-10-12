@@ -1,11 +1,5 @@
-<%- include('./partials/head.ejs') %> 
-
-<a href="/brand">brand</a>
-<a href="/width">width</a>
-<a href="/length">length</a>
-<a href="/wheelbase">wheelbase</a>
-</div>
-
+<%- include('./partials/head.ejs') %>
+<h1>Wheelbase page</h1>
 
 <% decks.forEach((deck) => { %>
     <p><%= deck.name %></p>
@@ -14,9 +8,5 @@
         <img class="index-img" src="<%= deck.img %>" />
     </a>
 <% }) %>
-
-
-
-</div>
 
 <%- include('./partials/foot.ejs') %> 

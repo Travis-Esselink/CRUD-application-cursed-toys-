@@ -1,0 +1,17 @@
+<%- include('./partials/head.ejs') %> 
+
+<h1>Widths</h1>
+
+
+<% widths.forEach((width) => { %>
+    <a href="/width/<%= width %>"> 
+        <p> <%= width %> </p>
+    </a>
+<% }) %>
+
+
+
+
+
+
+<%- include('./partials/foot.ejs') %> 

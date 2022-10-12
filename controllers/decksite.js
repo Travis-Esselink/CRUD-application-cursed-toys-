@@ -9,6 +9,8 @@ const ensureLogin = require('connect-ensure-login')
 // Variable to access upload.js from middlewares folder
 const upload = require('../middlewares/upload')
 
+const User = require('../models/userModel')
+
 // All routes listed below will now only be accessible by logged in users
 router.use(ensureLogin.ensureLoggedIn())
 
@@ -24,7 +26,7 @@ router.get('/decksite', async (req, res) => {
 
 // NEW 
 router.get('/decksite/new', (req, res) => {
-    res.render('new.ejs',{
+    res.render('new.ejs', {
         tabTitle: 'New Deck'
     })
 })
@@ -32,8 +34,8 @@ router.get('/decksite/new', (req, res) => {
 // CREATE
 router.post('/decksite', upload.single('img'), async (req, res) => {
     req.body.img = req.file.path
-   await Deck.create(req.body)
-   res.redirect('/decksite')
+    await Deck.create(req.body)
+    res.redirect('/decksite')
 })
 
 // EDIT 
@@ -43,8 +45,9 @@ router.get('/decksite/:id/edit', async (req, res) => {
         deck: deck,
         tabTitle: 'Edit Deck Listing'
     })
-  
+
 })
+
 
 // UPDATE
 router.put('/decksite/:id', upload.single('img'), async (req, res) => {
@@ -53,7 +56,7 @@ router.put('/decksite/:id', upload.single('img'), async (req, res) => {
         req.params.id,
         req.body,
         { new: true }
-        )
+    )
     console.log('Updated deck', deck)
     res.redirect(`/decksite/${req.params.id}`)
 })
@@ -64,16 +67,112 @@ router.delete('/decksite/:id', async (req, res) => {
     const deck = await Deck.findByIdAndRemove(req.params.id)
     console.log('Deleted deck', deck)
     res.redirect('/decksite')
-   })
+})
 
 
 // SHOW
-router.get('/decksite/:id', async (req, res) => {
-    const deck = await Deck.findById(req.params.id)
-    res.render('show.ejs', {
-        deck: deck,
-        tabTitle: deck.name
+router.get('/decksite/:id', async (req, res, next) => {
+    try {
+        const deck = await Deck.findById(req.params.id)
+        if (deck) {
+            res.render('show.ejs', {
+                deck: deck,
+                tabTitle: deck.name
+            })
+        } else {
+            throw new Error('Deck not found')
+        }
+    } catch (error) {
+        next(error)
+    }
+})
+
+// *** FILTER ROUTES ***
+
+// ALL BRANDS 
+router.get('/brand', async (req, res) => {
+    const brands = await Deck.find(req.params.brand).distinct('brand')
+    brands.sort(function (a, b) {
+        return a.localeCompare(b)
+    })
+
+    res.render('allbrands.ejs', {
+       brands
     })
 })
+
+// BRAND
+router.get('/brand/:brand', async (req, res) => {
+    const decks = await Deck.find({ brand: req.params.brand })
+    res.render('brand.ejs', {
+        decks
+    })
+})
+
+// ALL WIDTHS
+
+router.get('/width', async (req, res) => {
+    const widths = await Deck.find(req.params.brand).distinct('width')
+    widths.sort(function (a, b) {
+        return a - b
+    })
+    res.render('allwidths.ejs', {
+       widths
+    })
+})
+
+// WIDTH
+
+router.get('/width/:width', async (req, res) => {
+    const decks = await Deck.find({ width: req.params.width })
+    res.render('width.ejs', {
+        decks
+    })
+})
+
+// ALL LENGTHS
+
+router.get('/length', async (req, res) => {
+    const lengths = await Deck.find(req.params.length).distinct('length')
+    lengths.sort(function (a, b) {
+        return a - b
+    })
+    res.render('alllengths.ejs', {
+       lengths
+    })
+})
+
+// LENGTH
+
+router.get('/length/:length', async (req, res) => {
+    const decks = await Deck.find({ length: req.params.length })
+    res.render('length.ejs', {
+        decks
+    })
+})
+
+// ALL WHEELBASES
+
+router.get('/wheelbase', async (req, res) => {
+    const wheelbases = await Deck.find(req.params.wheelbase).distinct('wheelbases')
+    wheelbases.sort(function (a, b) {
+        return a - b
+    })
+    res.render('allbases.ejs', {
+        wheelbases
+    })
+})
+
+// WHEELBASE
+
+router.get('/wheelbase/:wheelbase', async (req, res) => {
+    const decks = await Deck.find({ wheelbase: req.params.wheelbase })
+    res.render('wheelbase.ejs', {
+        decks
+    })
+})
+
+// ALL COLLECTIONS
+
 
 module.exports = router

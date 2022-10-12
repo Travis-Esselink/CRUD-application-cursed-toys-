@@ -1,0 +1,11 @@
+<%- include('./partials/head.ejs') %>
+
+<h1>Wheelbase</h1>
+
+<% wheelbases.forEach((wheelbase) => { %>
+    <a href="/wheelbase/<%= wheelbase %>"> 
+        <p> <%= wheelbase %> </p>
+    </a>
+<% }) %>
+
+<%- include('./partials/foot.ejs') %>

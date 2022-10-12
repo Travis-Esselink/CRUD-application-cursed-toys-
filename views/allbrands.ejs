@@ -1,0 +1,17 @@
+<%- include('./partials/head.ejs') %> 
+
+<h1>Brands</h1>
+
+
+<% brands.forEach((brand) => { %>
+    <a href="/brand/<%= brand %>"> 
+        <p> <%= brand %> </p>
+    </a>
+<% }) %>
+
+
+
+
+
+
+<%- include('./partials/foot.ejs') %> 

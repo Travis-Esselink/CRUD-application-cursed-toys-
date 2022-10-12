@@ -1,0 +1,11 @@
+<%- include('./partials/head.ejs') %>
+
+<% decks.forEach((deck) => { %>
+    <p><%= deck.name %></p>
+        <p><%= deck.width %></p>
+    <a class="index-deck"href="decksite/<%= deck.id %>">
+        <img class="index-img" src="<%= deck.img %>" />
+    </a>
+<% }) %>
+
+<%- include('./partials/foot.ejs') %>

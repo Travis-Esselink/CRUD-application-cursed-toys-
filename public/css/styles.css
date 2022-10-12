@@ -3,6 +3,9 @@
 }
 
 .index-img {
-    width: 350px;
+    max-width: 400px;
 }
 
+body {
+    background: beige;
+}

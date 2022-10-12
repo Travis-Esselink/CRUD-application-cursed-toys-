@@ -23,6 +23,8 @@ const Deck = require('./models/deckModel')
 const authController = require('./controllers/auth')
 const decksiteController = require('./controllers/decksite')
 
+const { notFoundHandler, errorHandler } = require('./middlewares/error-handlers')
+
 
 // Variable for accessing object list
 const seedData = require('./seed/decksList')
@@ -99,3 +101,5 @@ app.listen(PORT, ()=>  {
 app.use(authController)
 // app.use(decksiteController) MUST COME AFTER app.use(authController) as decksite controller disallows access to all routes that come after it without being logged in
 app.use(decksiteController)
+app.use(notFoundHandler)
+app.use(errorHandler)
