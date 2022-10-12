@@ -1,0 +1,14 @@
+
+
+<%- include('./partials/head.ejs') %>
+<h1> <%= decks[0].owner %>'s collection </h1>
+
+<% decks.forEach((deck) => { %>
+    <p><%= deck.name %></p>
+        <p><%= deck.brand %></p>
+    <a class="index-deck"href="decksite/<%= deck.id %>">
+        <img class="index-img" src="<%= deck.img %>" />
+    </a>
+<% }) %>
+
+<%- include('./partials/foot.ejs') %> 

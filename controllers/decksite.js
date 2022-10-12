@@ -154,12 +154,12 @@ router.get('/length/:length', async (req, res) => {
 // ALL WHEELBASES
 
 router.get('/wheelbase', async (req, res) => {
-    const wheelbases = await Deck.find(req.params.wheelbase).distinct('wheelbases')
+    const wheelbases = await Deck.find(req.params.wheelbase).distinct('wheelbase')
     wheelbases.sort(function (a, b) {
         return a - b
     })
     res.render('allbases.ejs', {
-        wheelbases
+       wheelbases
     })
 })
 
@@ -174,5 +174,32 @@ router.get('/wheelbase/:wheelbase', async (req, res) => {
 
 // ALL COLLECTIONS
 
+router.get('/collections', async (req, res) => {
+    const owners = await Deck.find(req.params.owner).distinct('owner')
+    owners.sort(function (a, b) {
+        return a.localeCompare(b)
+    })
+    res.render('allcollections.ejs', {
+       owners
+    })
+})
+
+// COLLECTION
+router.get('/collections/:owner', async (req, res) => {
+    const decks = await Deck.find({ owner: req.params.owner })
+    res.render('collection.ejs', {
+        decks
+    })
+})
+
+
+// MY COLLECTION
+router.get('/mycollection', async (req, res) => {
+    const decks = await Deck.find({ owner: req.user.username })
+    res.render('mycollection.ejs', {
+        decks
+    })
+
+})
 
 module.exports = router

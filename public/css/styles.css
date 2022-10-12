@@ -2,10 +2,57 @@
     box-sizing: border-box;
 }
 
+.main-heading {
+    font-size: 55px;
+    font-weight: 800;
+    font-family: "Nosifer"
+}
+
+.index-header-div {
+    text-align: center;
+    margin: 75px auto;
+}
+
+.index-container {
+   text-align: center;
+}
+
 .index-img {
-    max-width: 400px;
+    max-width: 80%;
+    min-width: 50%;
+    margin-bottom: 20px auto;
+}
+
+
+.show-div {
+    text-align: center;
+    min-width: 200px;
+}
+
+.show-img {
+    width: 75%;
+    max-width: 600px;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.show-img {
+    width: 600px;
 }
 
 body {
     background: beige;
-}
+    text-transform: uppercase;
+    font-family:'Courier New', Courier, monospace;
+    background-image: repeating-radial-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.00055px);
+    animation: back 5s linear infinite;
+  }
+  
+  @keyframes back {
+      from {
+      background-size: 100% 100%;
+    }
+    to {
+      background-size: 200% 200%;
+    }
+  }

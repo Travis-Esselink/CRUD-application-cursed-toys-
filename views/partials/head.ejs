@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skateboard Collection Site - <%= typeof tabTitle==='undefined' ? '' : tabTitle %></title>
+    <title>Skateboard Collection Site - <%= typeof tabTitle==='undefined' ? '' : tabTitle %>
+    </title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 
-    <form action="/logout" method="post">
-        <input type="submit" value="Logout" />
-      </form>
-
     <div class="index-header-div">
-        <h1 class="heading">Skateboard Collection Site</h1>
-  
- 
+        <h1 class="main-heading">CURSED TOYS</h1>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-md-3">
+        <div class="container">
+            <a href="/decksite" class="navbar-brand">CURSED TOYS</a>
+            <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
+                aria-controls="navbarNav" aria-expanded="false" aria-lable="Toggle Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav justify-content-between w-100">
+                    <li class="nav-item">
+                        <a href="/collections" class="nav-link">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/decksite" class="nav-link">All Boards</a>
+                    </li>
+                    <li class="nav-item justify-self-right">
+                        <a href="/mycollection" class="nav-link">My Collection</a>
+                    </li>
+                    <li class="nav-item fixed-right">
+                        <form action="/logout" method="post">
+                            <input type="submit" value="Logout" />
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    </form>
+
+    

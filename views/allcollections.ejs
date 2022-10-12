@@ -1,0 +1,12 @@
+<%- include('./partials/head.ejs') %>
+
+<h1>Collections</h1>
+
+
+<% owners.forEach((owner) => { %>
+    <a href="/collections/<%= owner %>"> 
+        <p> <%= owner %> </p>
+    </a>
+<% }) %>
+
+<%- include('./partials/foot.ejs') %>

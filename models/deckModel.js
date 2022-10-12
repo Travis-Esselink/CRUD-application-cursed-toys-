@@ -9,7 +9,8 @@ const deckSchema = new Schema ({
     length: Number,
     wheelbase: Number,
     woodshop: String,
-    img: String
+    img: String,
+    owner: String
 })
 
 const Deck = mongoose.model('Deck', deckSchema)

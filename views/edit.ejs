@@ -7,25 +7,28 @@
     <form action="/decksite/<%= deck.id %>?_method=PUT" method="post" enctype="multipart/form-data">
 
         <label for="name">Title</label>
-        <input type="text" name="name" id="name" required/>
+        <input type="text" name="name" id="name" value="<%= deck.name %>" required/>
     
-        <label for="Brand">Brand</label>
-        <input type="text" name="Brand" id="Brand" required/>
+        <label for="brand">Brand</label>
+        <input type="text" name="brand" id="brand" value="<%= deck.brand %>" required/>
     
-        <label for="Width">Width</label>
-        <input type="text" name="Width" id="Width" required/>
+        <label for="width">Width</label>
+        <input type="text" name="width" id="width" value="<%= deck.width %>" required/>
     
-        <label for="Length">Length</label>
-        <input type="text" name="Length" id="Length" required/>
+        <label for="length">Length</label>
+        <input type="text" name="length" id="length" value="<%= deck.length %>" required/>
     
-        <label for="Wheelbase">Wheelbase</label>
-        <input type="text" name="Wheelbase" id="Wheelbase" required/>
+        <label for="wheelbase">Wheelbase</label>
+        <input type="text" name="wheelbase" id="wheelbase" value="<%= deck.wheelbase %>" required/>
     
-        <label for="Woodshop">Woodshop</label>
-        <input type="text" name="Woodshop" id="Woodshop" required/>
-       
+        <label for="woodshop">Woodshop</label>
+        <input type="text" name="woodshop" id="woodshop" value="<%= deck.woodshop %>" required/>
+
         <label for="img">Image</label>
-        <input type="file" name="img" id="img"/>
+        <input type="file" name="img" id="img" required/>
+
+        <label for="owner">Owner</label>
+        <input type="text" name="owner" id="owner" value="<%= deck.owner %>" required/>
     
         <input type="submit" value="Edit Board" />
     
