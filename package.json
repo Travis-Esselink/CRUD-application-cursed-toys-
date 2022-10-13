@@ -15,8 +15,8 @@
     "passport": "^0.6.0",
     "passport-local-mongoose": "^7.1.2"
   },
-  "name": "express-store",
-  "description": "Make a product inventory manager with full CRUD using Express and Mongoose.",
+  "name": "cursed-toys",
+  "description": "skateboard collection resource",
   "version": "1.0.0",
   "engines": {
     "node": "18.9.1"
