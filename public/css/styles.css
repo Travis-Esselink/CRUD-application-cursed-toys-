@@ -77,8 +77,8 @@ hr {
 .page-heading {
     margin-top: 0px;
     margin-bottom: 50px;
-    opacity: 45%;
-    font-weight: 600;
+    opacity: 20%;
+    font-weight: 400;
 }
 
 .show-div {
@@ -104,7 +104,7 @@ hr {
 .label-class {
     float: left;
     margin-left: 75px;
-    border-radius: 7px;
+    border-radius: 5px;
 }
 
 input[type="submit"] {
@@ -142,7 +142,7 @@ input {
 
 .edit-delete-btn {
     margin-bottom: 10px;
-    border-radius: 7px;
+    border-radius: 5px;
 }
 
 .rego-now-div {
