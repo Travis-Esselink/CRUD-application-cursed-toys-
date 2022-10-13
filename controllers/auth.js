@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
 // LOGIN 
 router.get('/login', (req, res) => {
     if (req.isAuthenticated()) {
-        res.redirect('back')
+        res.redirect('/decksite')
     } else {
         res.render('login.ejs', {
             tabTitle: 'Login'
