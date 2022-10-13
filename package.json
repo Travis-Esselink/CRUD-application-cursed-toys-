@@ -18,6 +18,9 @@
   "name": "express-store",
   "description": "Make a product inventory manager with full CRUD using Express and Mongoose.",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.9.1"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
