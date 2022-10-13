@@ -3,28 +3,29 @@
 
     <div class="show-div">
         <img class="show-img" src=" <%= deck.img %>" />
-        <h3 class="show-heading">
-            <%= deck.brand %>
-        </h3>
-        <h3>
-            <%= deck.name %>
-        </h3>
-        <p> <%= deck.width %> </p>
-        <p> <%= deck.length %> </p>
-        <p> <%= deck.wheelbase %> </p>
-        <p> <%= deck.woodshop %> </p>
-        <p> Owner: <%= deck.owner %> </p>
-        
+        <div class="show-heading-div">
+            <h3 class="show-heading">
+                "<%= deck.name %>"
+            </h3>
+            <h3>
+                <%= deck.brand %>
+            </h3>
+        </div>
+        <div class="show-stats">
+            <p> width: <%= deck.width %>
+            </p>
+            <p> length: <%= deck.length %>
+            </p>
+            <p> wheelbase: <%= deck.wheelbase %>
+            </p>
+            <p> factory/woodshop: <%= deck.woodshop %>
+            </p>
+            <p> owner: <%= deck.owner %>
+            </p>
+        </div>
 
     </div>
 
-    <form action="/decksite/<%= deck.id %>/edit">
-        <input class="edit-delete-btn" type="submit" value="EDIT" />
-    </form>
-
-    <form action="/decksite/<%= deck.id %>?_method=DELETE" method="post">
-        <input class="edit-delete-btn" type="submit" value="REMOVE" />
-    </form>
 
 
     <%- include('./partials/foot.ejs') %>

@@ -1,41 +1,45 @@
-<%- include('./partials/head.ejs') %> 
+<%- include('./partials/head.ejs') %>
 
-<h1>Edit Deck</h1>
+    <h1>Edit Board</h1>
 
-<div class="form-div">
+    <div class="form-div">
 
-    <form action="/decksite/<%= deck.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <form action="/decksite/<%= deck.id %>?_method=PUT" method="post" enctype="multipart/form-data">
 
-        <label for="name">Title</label>
-        <input type="text" name="name" id="name" value="<%= deck.name %>" required/>
-    
-        <label for="brand">Brand</label>
-        <input type="text" name="brand" id="brand" value="<%= deck.brand %>" required/>
-    
-        <label for="width">Width</label>
-        <input type="text" name="width" id="width" value="<%= deck.width %>" required/>
-    
-        <label for="length">Length</label>
-        <input type="text" name="length" id="length" value="<%= deck.length %>" required/>
-    
-        <label for="wheelbase">Wheelbase</label>
-        <input type="text" name="wheelbase" id="wheelbase" value="<%= deck.wheelbase %>" required/>
-    
-        <label for="woodshop">Woodshop</label>
-        <input type="text" name="woodshop" id="woodshop" value="<%= deck.woodshop %>" required/>
+            <label class="label-class" for="name">Title</label>
+            <input class="input-class" type="text" name="name" id="name" value="<%= deck.name %>" required />
 
-        <label for="img">Image</label>
-        <input type="file" name="img" id="img" required/>
+            <label class="label-class" for="brand">Brand</label>
+            <input input class="input-class" type="text" name="brand" id="brand" value="<%= deck.brand %>" required />
 
-        <label for="owner">Owner</label>
-        <input type="text" name="owner" id="owner" value="<%= deck.owner %>" required/>
-    
-        <input type="submit" value="Edit Board" />
-    
-    </form>
+            <label class="label-class" for="width">Width</label>
+            <input input class="input-class" type="text" name="width" id="width" value="<%= deck.width %>" required />
 
-</div>
+            <label class="label-class" for="length">Length</label>
+            <input input class="input-class" type="text" name="length" id="length" value="<%= deck.length %>"
+                required />
+
+            <label class="label-class" for="wheelbase">Wheelbase</label>
+            <input input class="input-class" type="text" name="wheelbase" id="wheelbase" value="<%= deck.wheelbase %>"
+                required />
+
+            <label class="label-class" for="woodshop">Woodshop</label>
+            <input input class="input-class" type="text" name="woodshop" id="woodshop" value="<%= deck.woodshop %>"
+                required />
+
+            <label class="label-class" for="img">Image</label>
+            <input input class="input-class" type="file" name="img" id="img-field" title=" " required />
+
+            <label class="label-class" for="owner"> </label>
+            <input input class="input-class" type="text" name="owner" id="owner-field" value="<%= deck.owner %>"
+                required />
+
+            <input class="label-class" type="submit" value="Edit Board" id="submit-button" />
+
+        </form>
+
+    </div>
 
 
 
-<%- include('./partials/foot.ejs') %> 
+    <%- include('./partials/foot.ejs') %>

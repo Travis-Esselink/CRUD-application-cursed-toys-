@@ -26,7 +26,9 @@ router.get('/decksite', async (req, res) => {
 
 // NEW 
 router.get('/decksite/new', (req, res) => {
+    const user = req.user.username
     res.render('new.ejs', {
+        user,
         tabTitle: 'New Deck'
     })
 })
@@ -41,8 +43,10 @@ router.post('/decksite', upload.single('img'), async (req, res) => {
 // EDIT 
 router.get('/decksite/:id/edit', async (req, res) => {
     const deck = await Deck.findById(req.params.id)
+    const user = req.user.username
     res.render('edit.ejs', {
-        deck: deck,
+        deck,
+        user,
         tabTitle: 'Edit Deck Listing'
     })
 
@@ -196,8 +200,10 @@ router.get('/collections/:owner', async (req, res) => {
 // MY COLLECTION
 router.get('/mycollection', async (req, res) => {
     const decks = await Deck.find({ owner: req.user.username })
+    const user = req.user.username
     res.render('mycollection.ejs', {
-        decks
+        decks,
+        user
     })
 
 })

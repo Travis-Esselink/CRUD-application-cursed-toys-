@@ -1,18 +1,23 @@
 <%- include('./partials/head.ejs') %> 
+<h2 class="page-heading">ALL BOARDS:</h2>
+<div class="filter-div">
+<p>Filter:</p>
 <a href="/brand">brand</a>
 <a href="/width">width</a>
 <a href="/length">length</a>
 <a href="/wheelbase">wheelbase</a>
 </div>
+
+</div>
+
 <div class="index-container">
 
 <% decks.forEach((deck) => { %>
  
-    <a class="index-deck"href="decksite/<%= deck.id %>">
+    <a class="index-deck" href="decksite/<%= deck.id %>">
         <img class="index-img" src="<%= deck.img %>" />
+        <p class="index-text">"<%= deck.name %>" <%= deck.brand %></p>
     </a>
-
-    <p><%= deck.name %> <%= deck.brand %></p>
 <% }) %>
 
 

@@ -1,38 +1,41 @@
 <%- include('./partials/head.ejs') %> 
 
 
-
+<h3 class="page-heading">New Board</h3>
 
 
 <div class="form-div">
 
+   
+
 <form action="/decksite" method="post" enctype="multipart/form-data">
 
 
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required/>
+    <label class="label-class" for="name">Title</label>
+    <input class="input-class" type="text" name="name" id="name" required/>
 
-    <label for="brand">Brand</label>
-    <input type="text" name="brand" id="brand" required/>
+    <label class="label-class"  for="brand">Brand</label>
+    <input input class="input-class" type="text" name="brand" id="brand" required/>
 
-    <label for="name">Width</label>
-    <input type="text" name="width" id="width" required/>
+    <label class="label-class"  for="width">Width</label>
+    <input input class="input-class" type="text" name="width" id="width" required/>
 
-    <label for="length">Length</label>
-    <input type="text" name="length" id="length" required/>
+    <label class="label-class"  for="length">Length</label>
+    <input input class="input-class" type="text" name="length" id="length" required/>
 
-    <label for="wheelbase">Wheelbase</label>
-    <input type="text" name="wheelbase" id="wheelbase" required/>
+    <label class="label-class"  for="wheelbase">Wheelbase</label>
+    <input input class="input-class" type="text" name="wheelbase" id="wheelbase" required/>
 
-    <label for="woodshop">Woodshop/Factory</label>
-    <input type="text" name="woodshop" id="woodshop" required/>
-   
-    <label for="img">Image</label>
-    <input type="file" name="img" id="img"/>
+    <label class="label-class"  class="label-class"  for="woodshop">Woodshop</label>
+    <input input class="input-class" type="text" name="woodshop" id="woodshop" required/>
 
- 
+    <label class="label-class"  for="img">Image</label>
+    <input input class="input-class" class="label-class"  type="file" name="img" id="img-field" title=" " required/>
 
-    <input type="submit" value="Add Board" />
+    <label class="label-class"  for="owner"> </label>
+    <input input class="input-class" type="text" name="owner" id="owner-field" value="<%= user %>" required/>
+
+    <input class="label-class" type="submit" value="Add Board" id="submit-button"/>
 
 
 </form>

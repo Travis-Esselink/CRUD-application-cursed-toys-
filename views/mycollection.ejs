@@ -1,14 +1,28 @@
 
 
 <%- include('./partials/head.ejs') %>
-<h1> <%= decks[0].owner %>'s collection </h1>
+<h1 class="page-heading"> <%= user %>'s collection </h1>
 
-<% decks.forEach((deck) => { %>
-    <p><%= deck.name %></p>
-        <p><%= deck.brand %></p>
-    <a class="index-deck"href="decksite/<%= deck.id %>">
-        <img class="index-img" src="<%= deck.img %>" />
-    </a>
-<% }) %>
+<form action="/decksite/new">
+    <input class="edit-delete-btn" type="submit" value="ADD BOARD" id="add-button" />
+</form>
+
+<div class="index-container">
+    <% decks.forEach((deck) => { %>
+       
+        <a class="index-deck"href="/decksite/<%= deck.id %>">
+            <img class="index-img" src="<%= deck.img %>" />
+            <p>"<%= deck.name %>" <%= deck.brand %></p>
+            <form action="/decksite/<%= deck.id %>/edit">
+                <input class="edit-delete-btn" type="submit" value="EDIT" />
+            </form>
+        
+            <form action="/decksite/<%= deck.id %>?_method=DELETE" method="post">
+                <input class="edit-delete-btn" type="submit" value="REMOVE" />
+            </form>
+        
+        </a>
+    <% }) %>
+    </div>
 
 <%- include('./partials/foot.ejs') %> 
