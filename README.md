@@ -1,6 +1,4 @@
 
-
-
 ### CURSED TOYS skateboard collection CRUD app ###
 
 https://cursed-toys.herokuapp.com/
@@ -22,6 +20,10 @@ https://cursed-toys.herokuapp.com/
 - 'Collections' page shows a list of users who have uploaded their own collection, click through to view 
 - 'My Collection' page lists boards that current user has uploaded, here new boards can be added, and current boards can be edited or removed
 
+## Original wireframe for main display page laout ##
+
+![markdown-image](https://i.imgur.com/tlrqGgN.png)
+
 ## Technologies used ##
 
 Node.js
@@ -33,8 +35,18 @@ Javascript
 HTML
 CSS
 
+Basic full-stack CRUD application that adheres to MVC file structure.
 
 
 ## Features/Functionality ##
 
-create
+- login/register authentication 
+- view items via individual show routes
+- filter items by object parameters
+- view user collections based on original uploader
+- customise own collection (add, edit, delete)
+- mobile responsive layout
+
+## Future improvements ##
+
+- improve error handling
