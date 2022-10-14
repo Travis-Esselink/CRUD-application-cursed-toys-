@@ -20,7 +20,7 @@ https://cursed-toys.herokuapp.com/
 - 'Collections' page shows a list of users who have uploaded their own collection, click through to view 
 - 'My Collection' page lists boards that current user has uploaded, here new boards can be added, and current boards can be edited or removed
 
-## Original wireframe for main display page laout ##
+## Original wireframe for main display page layout ##
 
 ![markdown-image](https://i.imgur.com/tlrqGgN.png)
 
