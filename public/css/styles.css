@@ -6,7 +6,7 @@ body {
     background: beige;
     text-transform: uppercase;
     font-family:'Courier New', Courier, monospace;
-    background-image: repeating-radial-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.00120px);
+    background-image: repeating-radial-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.005px);
     animation: back 5s linear infinite;
     font-size: 18px;
   }
