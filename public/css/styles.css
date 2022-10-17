@@ -6,19 +6,19 @@ body {
     background: beige;
     text-transform: uppercase;
     font-family:'Courier New', Courier, monospace;
-    background-image: repeating-radial-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.005px);
-    animation: back 5s linear infinite;
+    background-image: repeating-conic-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.00120%);
+    animation: back 30s linear infinite;
     font-size: 18px;
   }
   
-  /* @keyframes back {
+  @keyframes back {
       from {
       background-size: 100% 100%;
     }
     to {
       background-size: 200% 200%;
     }
-  } */
+  }
 
 a {
     text-decoration: none;
