@@ -76,7 +76,7 @@ hr {
 .page-heading {
     margin-top: 0px;
     margin-bottom: 50px;
-    opacity: 20%;
+    opacity: 75%;
     font-weight: 400;
 }
 
@@ -207,6 +207,13 @@ body {
         grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-gap: 25px;
         margin: 0px auto;
+    }
+
+    .page-heading {
+        margin-top: 0px;
+        margin-bottom: 50px;
+        opacity: 35%;
+        font-weight: 400;
     }
 
     .index-header-div {
