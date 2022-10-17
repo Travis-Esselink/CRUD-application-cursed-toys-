@@ -2,14 +2,13 @@
     box-sizing: border-box;
 }
 
-body {
+  body {
     background: beige;
     text-transform: uppercase;
     font-family:'Courier New', Courier, monospace;
-    background-image: repeating-conic-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.00120%);
-    animation: back 30s linear infinite;
+    background-image: url(https://res.cloudinary.com/dvon4sztg/image/upload/v1666001052/decks/Screen_Shot_2022-10-17_at_9.00.08_pm_zw5uw4.png) ;
     font-size: 18px;
-  }
+  } 
   
   @keyframes back {
       from {
@@ -18,7 +17,7 @@ body {
     to {
       background-size: 200% 200%;
     }
-  }
+   } 
 
 a {
     text-decoration: none;
@@ -182,6 +181,24 @@ input {
 }
 
   @media (min-width: 960px) {
+body {
+    background: beige;
+    text-transform: uppercase;
+    font-family:'Courier New', Courier, monospace;
+    background-image: repeating-radial-gradient(rgb(217, 215, 135), rgb(173, 170, 20) 0.00120px);
+    animation: back 30s linear infinite;
+    font-size: 18px;
+  }
+  
+  @keyframes back {
+      from {
+      background-size: 100% 100%;
+    }
+    to {
+      background-size: 200% 200%;
+    }
+  }
+
     .index-container {
         max-width: 1600px;
         min-height: 100vh;
