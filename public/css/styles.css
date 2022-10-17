@@ -10,14 +10,14 @@
     font-size: 18px;
   } 
   
-  @keyframes back {
+  /* @keyframes back {
       from {
       background-size: 100% 100%;
     }
     to {
       background-size: 200% 200%;
     }
-   } 
+   }  */
 
 a {
     text-decoration: none;
