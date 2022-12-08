@@ -7,6 +7,8 @@ Check out the app [here!](https://cursed-toys.fly.dev)
 - A place for skateboard collectors to seek inspiration and inspire others
 - Developing this application helped reinforce newly aquired MERN stack skills
 
+![]([https://imgur.com/5a128cd9-0a37-4cbc-b105-2fb56f589f67](https://i.imgur.com/JUU4wmS.png))
+
 
 ## Login/Register ##
 
