@@ -1,7 +1,7 @@
 
 ### CURSED TOYS skateboard collection CRUD app ###
 
-Check out the app [here!](cursed-toys.fly.dev)
+Check out the app [here!](https://cursed-toys.fly.dev)
 
 - Created to assist users in cataloguing and sharing their skateboard collection online
 - A place for skateboard collectors to seek inspiration and inspire others
